@@ -1,0 +1,13 @@
+
+
+p.ex {
+    word-wrap: break-word;
+    max-width:250px;
+    text-align:center;
+    white-space: pre-wrap;
+}
+
+.eshek {
+  width: 20px;
+  background-color: red;
+}
