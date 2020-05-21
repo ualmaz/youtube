@@ -1,9 +1,7 @@
 
 var reqURL = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=");
 var apiKey= "AIzaSyBw0otQIxkMX3v4JT9ynJH5s3R9ZULvehY";
-var clientId = "691301328864-al5k6cjt1006rgdb4qraus4fm2n7nreu.apps.googleusercontent.com";
 var channelID = "UC7WnrV5aBx7LjWp0lorB73Q"
-var userID = "7WnrV5aBx7LjWp0lorB73Q"
 
 function loadVideo(iframe) {
   $.getJSON(reqURL + iframe.getAttribute('cid'),
@@ -15,7 +13,10 @@ function loadVideo(iframe) {
 
       var url = 'https://www.youtube.com/channel/' + channelID;
       $.getJSON('https://www.googleapis.com/youtube/v3/videos?id=' + id + '&key=' + apiKey + '&fields=items(snippet(title))&part=snippet', {format: 'json', url: url}, function (data) {
-          $("h2").html(data.items[0].snippet.title);
+        var h2s = $("h2")
+        console.log(data.items)
+        $(h2s[videoNumber]).html(data.items[0].snippet.title)
+        
       });
     }
   );
